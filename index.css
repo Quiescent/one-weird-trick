@@ -1,0 +1,27 @@
+.centered {
+    text-align: center;
+}
+
+.smaller {
+    font-size: x-large;
+}
+
+.even-smaller {
+    font-size: large
+}
+
+.and-even-smaller {
+    font-size: medium
+}
+
+.and-smaller-than-that {
+    font-size: small
+}
+
+.mono {
+    font-family: monospace, monospace;
+}
+
+.shift-left {
+    margin-left: -210px;
+}
