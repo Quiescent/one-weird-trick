@@ -25,3 +25,43 @@
 .shift-left {
     margin-left: -210px;
 }
+
+#first-view-of-board:not(.active) {
+    display: none;
+}
+
+#empty-board:not(.active) {
+    display: none;
+}
+
+#statistics:not(.active) {
+    display: none;
+}
+
+#first-energy-towers:not(.active) {
+    display: none;
+}
+
+#first-energy-towers-built:not(.active) {
+    display: none;
+}
+
+#first-attack-towers:not(.active) {
+    display: none;
+}
+
+#first-attack-towers-built:not(.active) {
+    display: none;
+}
+
+#first-defense-towers:not(.active) {
+    display: none;
+}
+
+#first-defense-towers-built:not(.active) {
+    display: none;
+}
+
+#iron-curtain-built:not(.active) {
+    display: none;
+}
