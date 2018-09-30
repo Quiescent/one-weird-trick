@@ -7,15 +7,23 @@
 }
 
 .even-smaller {
-    font-size: large
+    font-size: large;
 }
 
 .and-even-smaller {
-    font-size: medium
+    font-size: medium;
 }
 
 .and-smaller-than-that {
-    font-size: small
+    font-size: small;
+}
+
+.and-smaller-yet-than-that {
+    font-size: x-small;
+}
+
+.and-so-small-that-there-isnt-another-class {
+    font-size: xx-small;
 }
 
 .mono {
@@ -63,5 +71,17 @@
 }
 
 #iron-curtain-built:not(.active) {
+    display: none;
+}
+
+#row-heat:not(.active) {
+    display: none;
+}
+
+#global-heuristics:not(.active) {
+    display: none;
+}
+
+#complexity:not(.active) {
     display: none;
 }
