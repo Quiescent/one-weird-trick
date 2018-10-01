@@ -392,14 +392,28 @@ Player B, Health= 25, Energy=    94, Score=  6800, IronCurtainAvailable= No
                 <br />
                 Regression
             </div>
-            <div id="next_state" class="step" data-x="800" data-y="0">
+            <div id="next_state" class="step" data-x="800" data-y="200">
                 <div class="smaller">
-                    next_state = tick_engine ∘ make_my_move ∘ make_oponents_move
+                    S(s) = t(s) ∘ m(s) ∘ o(s)<br />
+                    <div class="even-smaller">
+                        S(s) -- next state<br />
+                        t(s) -- tick engine<br />
+                        m(s) -- make my move<br />
+                        o(s) -- make oponents move
+                    </div>
+                    <br />
                 </div>
             </div>
-            <div id="tick_engine" class="step" data-x="800" data-y="200">
+            <div id="tick_engine" class="step" data-x="800" data-y="400">
                 <div class="smaller">
-                    tick_engine = gain_energy ∘ tick_missiles ∘ tick_buildings ∘ tick_iron_curtain ∘ increment_round
+                    t(s) = e(s) ∘ r(s) ∘ b(s) ∘ c(s) ∘ i(s)<br />
+                    <div class="even-smaller">
+                        e(s) -- gain energy<br/>
+                        r(s) -- tick missiles<br/>
+                        b(s) -- tick building<br />
+                        c(s) -- tick iron curtain<br />
+                        i(s) -- increment round
+                    </div>
                 </div>
             </div>
         </div>
