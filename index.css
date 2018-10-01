@@ -85,3 +85,11 @@
 #complexity:not(.active) {
     display: none;
 }
+
+.vertically-centre {
+    vertical-align: middle;
+}
+
+.pad-right {
+    padding-right: 50px;
+}
