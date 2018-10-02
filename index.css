@@ -10,6 +10,18 @@
     font-size: large;
 }
 
+.highlight_blue {
+    color: #1E90FF;
+}
+
+.highlight_red {
+    color: #DC143C;
+}
+
+.highlight_green {
+    color: #008000;
+}
+
 .and-even-smaller {
     font-size: medium;
 }
