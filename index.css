@@ -53,6 +53,16 @@ time, mark, audio, video {
     width: auto;
 }
 
+.large-tesla {
+    height: 80vh;
+    width: auto;
+}
+
+.large-fat-tesla {
+    width: 80vw;
+    height: auto;
+}
+
 .highlight_tesla {
     color: #FF6600;
 }
