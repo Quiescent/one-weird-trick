@@ -10,21 +10,29 @@
     font-size: large;
 }
 
-.highlight_blue {
+.highlight_energy {
     color: #1E90FF;
 }
 
-.highlight_red {
+.highlight_attack {
     color: #DC143C;
 }
 
-.highlight_green {
+.highlight_defence {
     color: #008000;
 }
 
 .smaller-tesla {
     width: 300px;
     height: auto;
+}
+
+.highlight_tesla {
+    color: #FF6600;
+}
+
+.highlight_iron_curtain {
+    color: #800000;
 }
 
 .and-even-smaller {
