@@ -80,6 +80,10 @@ time, mark, audio, video {
     font-family: monospace, monospace;
 }
 
+.hide-inactive:not(.active) {
+    display: none;
+}
+
 .shift-left {
     margin-left: -210px;
 }
@@ -96,6 +100,8 @@ time, mark, audio, video {
 #tesla-tower.active+#first-view-of-board {
     display: block !important;
 }
+
+
 
 #empty-board:not(.active) {
     display: none;
