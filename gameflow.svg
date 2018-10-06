@@ -12,9 +12,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1089.3334"
+   width="889.33337"
    height="230.66667"
-   viewBox="0 0 817.03 173"
+   viewBox="0 0 667.0245 173"
    version="1.1"
    id="svg999"
    sodipodi:docname="gameflow.svg"
@@ -47,8 +47,8 @@
      id="namedview1001"
      showgrid="false"
      inkscape:zoom="1.4086597"
-     inkscape:cx="1034.8434"
-     inkscape:cy="-129.11728"
+     inkscape:cx="1034.7521"
+     inkscape:cy="-129.09657"
      inkscape:window-x="3840"
      inkscape:window-y="37"
      inkscape:window-maximized="0"
@@ -57,7 +57,7 @@
   <g
      class="node"
      id="node1"
-     transform="translate(62.568457,130.22404)">
+     transform="translate(-26.881549,129.6916)">
     <title
        id="title942">Write the game state to file</title>
     <ellipse
@@ -77,7 +77,7 @@
   <g
      class="node"
      id="node2"
-     transform="translate(4,100.22294)">
+     transform="translate(-85.450006,99.690499)">
     <title
        id="title949">Bot A chooses a move</title>
     <ellipse
@@ -95,7 +95,7 @@
        x="427.91519">Bot A chooses a move</text>
   </g>
   <path
-     d="m 286.88879,74.364223 c 22.289,-2.0883 29.37816,-42.875939 51.47356,-44.946139"
+     d="m 197.43878,73.831782 c 22.289,-2.0883 29.37816,-42.875939 51.47356,-44.946139"
      id="path958"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000"
@@ -104,11 +104,11 @@
      points="330.5759,-62.8801 320.946,-58.4624 320.293,-65.4319 "
      id="polygon960"
      style="fill:#000000;stroke:#000000"
-     transform="translate(15.979912,91.888322)" />
+     transform="translate(-73.470094,91.355881)" />
   <g
      class="node"
      id="node4"
-     transform="translate(4,163.22534)">
+     transform="translate(-85.450006,162.6929)">
     <title
        id="title963">Bot B chooses a move</title>
     <ellipse
@@ -126,7 +126,7 @@
        x="427.91519">Bot B chooses a move</text>
   </g>
   <path
-     d="m 285.55769,95.817642 c 22.289,2.0883 21.69435,45.923138 60.82785,47.194678"
+     d="m 196.10768,95.285201 c 22.289,2.0883 21.69435,45.923139 60.82785,47.194679"
      id="path972"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000"
@@ -135,28 +135,28 @@
      points="330.5759,-27.1199 320.293,-24.5681 320.946,-31.5376 "
      id="polygon974"
      style="fill:#000000;stroke:#000000"
-     transform="translate(15.809635,170.13222)" />
+     transform="translate(-73.640371,169.59978)" />
   <ellipse
-     cx="660.48895"
-     cy="85.224037"
+     cx="571.03894"
+     cy="84.691597"
      rx="79.441208"
      ry="18"
      id="ellipse979"
      style="fill:none;stroke:#000000" />
   <text
-     x="660.48895"
-     y="88.924042"
+     x="571.03894"
+     y="88.391602"
      font-size="14.00"
      id="text981"
      style="font-size:14px;font-family:Times, serif;text-anchor:middle;fill:#000000">Play moves</text>
   <path
      sodipodi:nodetypes="cc"
-     d="m 515.48171,26.831027 c 20.2761,2.067496 32.99242,57.003669 53.70262,59.115569"
+     d="m 426.0317,26.298586 c 20.2761,2.067496 32.99242,57.003669 53.70262,59.115569"
      id="path986"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000" />
   <polygon
-     transform="rotate(-8.1264987,1575.5654,129.5453)"
+     transform="rotate(-8.1264987,1527.0927,758.88764)"
      points="585.7983,-59.4187 595.3916,-54.9222 585.0881,-52.4548 "
      id="polygon988"
      style="fill:#000000;stroke:#000000"
@@ -164,7 +164,7 @@
      inkscape:transform-center-y="2.5075395" />
   <path
      sodipodi:nodetypes="cc"
-     d="m 516.53322,144.69675 c 20.2761,-2.0675 31.94091,-56.638254 52.65111,-58.750154"
+     d="m 427.08321,144.16431 c 20.2761,-2.0675 31.94091,-56.638255 52.65111,-58.750155"
      id="path993"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000" />
