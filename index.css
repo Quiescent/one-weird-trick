@@ -35,6 +35,10 @@
     color: #800000;
 }
 
+.not-so-small {
+    font-size: large;
+}
+
 .and-even-smaller {
     font-size: medium;
 }
@@ -126,4 +130,20 @@
 
 .pad-right {
     padding-right: 50px;
+}
+
+#simulate-poor-move-well:not(.active) {
+    display: none;
+}
+
+#solution-to-poor-simulations:not(.active) {
+    display: none;
+}
+
+.spacer {
+    padding-left: 400px;
+}
+
+.bump-right {
+    margin-left: -200px;
 }
