@@ -52,7 +52,7 @@
 [0   7][1   7][2   7][3   7][4   7][5   7][6   7][7   7]     [7   7][6   7][5   7][4   7][3   7][2   7][1   7][0   7]
                 </pre>
             </div>
-            <div id="energy-tower" class="step hide-inactive" data-x="-1600" data-y="-850" data-rotate-x="-90">
+            <div id="energy-tower" class="step tower-slide" data-x="-1600" data-y="-850" data-rotate-x="-90">
                 <div class="centered">
                     <img class="smaller-tesla" src="energy tower.png" />
                     <br />
@@ -62,7 +62,7 @@
                     <br />
                 </div>
             </div>
-            <div id="first-board-with-energy" class="step hide-inactive" data-x="-1000" data-y="-1000">
+            <div id="first-board-with-energy" class="step hide-inactive board-slide" data-x="-1000" data-y="-1000">
                 <pre class="board mono smaller">
 
 
@@ -77,7 +77,7 @@
 [0 e 7][1   7][2   7][3   7][4   7][5   7][6   7][7   7]     [7   7][6   7][5   7][4   7][3   7][2   7][1   7][0   7]
                 </pre>
             </div>
-            <div id="first-board-with-energy-completed" class="step hide-inactive" data-x="-1000" data-y="-1000">
+            <div id="first-board-with-energy-completed" class="step hide-inactive board-slide" data-x="-1000" data-y="-1000">
                 <pre class="board mono smaller">
 
 Player A, Energy=     5
@@ -92,7 +92,7 @@ Player B, Energy=    25
 [0 E 7][1   7][2   7][3   7][4   7][5   7][6   7][7   7]     [7   7][6   7][5   7][4   7][3   7][2   7][1   7][0   7]
                 </pre>
             </div>
-            <div id="missile-tower" class="step hide-inactive" data-x="-1100" data-y="-890" data-rotate-x="-90">
+            <div id="missile-tower" class="step tower-slide" data-x="-1100" data-y="-890" data-rotate-x="-90">
                 <div class="centered">
                     <img class="smaller-tesla" src="turretred.PNG" />
                     <br />
@@ -190,7 +190,7 @@ Player B, Energy=    25, Health=    95
 [0 E 7][1   7][2   7][3   7][4   7][5   7][6   7][7 A 7]     [7   7][6   7][5   7][4   7][3   7][2   7][1   7][0   7]
                 </pre>
             </div>
-            <div id="defence-tower" class="step hide-inactive" data-x="-500" data-y="-890" data-rotate-x="-90">
+            <div id="defence-tower" class="step tower-slide" data-x="-500" data-y="-890" data-rotate-x="-90">
                 <div class="centered">
                     <img class="smaller-tesla" src="defence.png" />
                     <br />
@@ -231,7 +231,7 @@ Player B, Energy=    25, Health=    95
 [0 E 7][1   7][2   7][3   7][4   7][5   7][6   7][7 A 7]     [7   7][6   7][5   7][4   7][3   7][2 D 7][1   7][0   7]
                 </pre>
             </div>
-            <div id="iron-curtain" class="step hide-inactive" data-x="-1100" data-y="-890" data-rotate-x="-90">
+            <div id="iron-curtain" class="step tower-slide" data-x="-1100" data-y="-890" data-rotate-x="-90">
                 <div class="centered">
                     <img class="smaller-tesla" src="iron curtain.png" />
                     <br />
@@ -258,7 +258,7 @@ Player B, Energy=    25, Health=    95
 [0 E 7][1   7][2   7][3   7][4   7][5   7][6   7][7 A 7]  /  [7   7][6   7][5   7][4   7][3   7][2 D 7][1   7][0   7]
                 </pre>
             </div>
-            <div id="tesla-tower" class="step hide-inactive" data-x="-1100" data-y="-890" data-rotate-x="-90">
+            <div id="tesla-tower" class="step tower-slide" data-x="-1100" data-y="-890" data-rotate-x="-90">
                 <div class="centered">
                     <img class="smaller-tesla" src="tesla.png" />
                     <br />
@@ -718,7 +718,7 @@ A defence tower looks good on this simulation...
 
     <script src="lib/highlight_board.js"></script>
     <script src="lib/tree.js"></script>
-    <script src="lib/game-flow.js"></script>
+    <script src="lib/transitions.js"></script>
 
     <script>impress().init();</script>
 
