@@ -22,6 +22,11 @@
     color: #008000;
 }
 
+.smaller-tesla {
+    width: 300px;
+    height: auto;
+}
+
 .and-even-smaller {
     font-size: medium;
 }
@@ -53,6 +58,10 @@
 
 #first-view-of-board:not(.active) {
     display: none;
+}
+
+#tesla-tower.active+#first-view-of-board {
+    display: block !important;
 }
 
 #empty-board:not(.active) {
