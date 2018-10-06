@@ -46,6 +46,11 @@
     margin-left: -210px;
 }
 
+#title img {
+    height: 60vh;
+    width: auto;
+}
+
 #first-view-of-board:not(.active) {
     display: none;
 }
