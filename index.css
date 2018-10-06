@@ -347,3 +347,8 @@ body.impress-mouse-timeout {
 #regression:not(.active) {
     display: none;
 }
+
+.vertical-center {
+    vertical-align: middle;
+    padding-left: 100px;
+}
