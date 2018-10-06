@@ -24,7 +24,7 @@ time, mark, audio, video {
 }
 
 .smaller {
-    font-size: x-large;
+    font-size: 1.2vw;
 }
 
 .even-smaller {
@@ -240,8 +240,8 @@ a:focus {
 
 .step {
     position: relative;
-    width: 900px;
     margin: 0px auto;
+    min-width: 900px;
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing:    border-box;
