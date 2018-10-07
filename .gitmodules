@@ -10,6 +10,3 @@
 [submodule "eds-bot"]
 	path = eds-bot
 	url = https://github.com/Quiescent/entellect-challenge-bot-2018.git
-[submodule "louis-bot"]
-	path = louis-bot
-	url = https://github.com/LouisLotter/amelie-bot.git
