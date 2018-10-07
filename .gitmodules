@@ -1,3 +1,15 @@
 [submodule "impress.js"]
 	path = impress.js
 	url = https://github.com/impress/impress.js.git
+[submodule "henrys-bot"]
+	path = henrys-bot
+	url = git@github.com:HenryS1/ChallengeBot2018.git
+[submodule "justins-bot"]
+	path = justins-bot
+	url = git@github.com:JWorthe/entelect-challenge-tower-defence.git
+[submodule "eds-bot"]
+	path = eds-bot
+	url = git@github.com:Quiescent/entellect-challenge-bot-2018.git
+[submodule "louis-bot"]
+	path = louis-bot
+	url = git@github.com:LouisLotter/amelie-bot.git
