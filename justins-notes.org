@@ -1,0 +1,21 @@
+* Code Show and Tell
+
+- [[./justins-bot/src/strategy/monte_carlo.rs::117]]
+  - show Rayon-style multithreading
+  - mutable state can be reasoned about by compiler
+- [[./justins-bot/src/engine/bitwise_engine.rs::8]]
+  - game implemented using bitfields to help make it fast
+  - hardcoded constants that the compiler can inline
+  - symmetric representation for player / opponent
+  - Sometimes the bitwise code gets weird
+  - ArrayVec!!!
+- [[./justins-bot/src/engine/bitwise_engine.rs::385]]
+  - Debug assertions of things that 'should never happen' helped catch
+    bugs early
+  - No impact when running in release mode
+- [[./justins-bot/src/engine/constants.rs]]
+  - Precompute values where possible
+  - Can use feature flags to swap out constants like running time
+- [[./justins-bot/tests/live_comparison.rs]]
+  - Caught mistakes in my understanding of game engine
+  - need to 'normalize' state to do comparison
