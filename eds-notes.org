@@ -1,0 +1,238 @@
+* Theme for Louis's Machine
+We need a good theme for the computer which will be presenting the
+code.  I think that the light doom theme will do well.  The following
+features are what I think make for good code viewing:
+ - High contrast, light colours
+ - Line Highlighting
+ - Line Numbers
+ - Large font
+ - Highlighting for the languages show-cased:
+   - Haskell
+   - C++
+   - Rust
+   - Java
+
+#+BEGIN_SRC emacs-lisp 
+  (require 'package)
+
+  (add-to-list
+   'package-archives
+   '("melpa" . "http://melpa.milkbox.net/packages/")
+   t)
+
+  (when (not (package-installed-p use-package))
+    (package-install 'use-package))
+
+  (use-package doom-themes
+    :ensure t
+    :init (progn
+            ;; From: https://github.com/hlissner/emacs-doom-themes
+            (require 'doom-themes)
+            ;; Global settings (defaults)
+            (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+                  doom-themes-enable-italic t) ; if nil, italics is universally disabled
+
+            ;; Enable flashing mode-line on errors
+            (doom-themes-visual-bell-config)
+
+            ;; Enable custom neotree theme (all-the-icons must be installed!)
+            (doom-themes-neotree-config)
+            ;; or for treemacs users
+            (doom-themes-treemacs-config)
+
+            ;; Corrects (and improves) org-mode's native fontification.
+            (doom-themes-org-config)
+
+            (load-theme 'doom-one-light t)))
+
+  (use-package doom-modeline
+    :ensure t
+    :init (doom-modeline-init))
+
+  (global-display-line-numbers-mode 1)
+
+  (global-hl-line-mode 1)
+
+  (use-package rust-mode
+    :ensure t)
+
+  (use-package haskell-mode
+    :ensure t)
+
+  (custom-set-faces '(default ((t (:height 350)))))
+
+  (use-package intero
+    :ensure t
+    :config (add-hook 'haskell-mode-hook 'intero-mode))
+#+END_SRC
+
+* Speach Notes
+** Reasoning
+What is the story which I'm telling for these slides?
+ - Knowing what makes for good game play is important.
+ - There's another aspect to understanding the problem of writing an
+   effective bot for a game: complexity, or in other words the amount
+   of variability.
+ - The game is complicated.
+ - In fact it's so complicated that even though our bots appear to be
+   playing a good game; it's entirely possible that they're actually
+   pretty poor at it.
+ - The visualisation of energy moves should give a good idea of how
+   vast the search space is.
+ - How would an AI deal with a vast amount of complexity?
+ - Well lets consider a slightly different question from an equally
+   complex domain: how would a robot catch a ball?
+ - The answer is of course that it would track the flight of the ball
+   and place it's hand in the correct position to catch the ball and
+   then close it's hand over the ball, the moment at which it arrives.
+ - In broad terms this idea is covered by the concept of regression.
+ - The bot projects into the future to know how to react in the
+   present.
+ - For our game this means that our bots should be able to tell what a
+   game would look like in a few turns time.
+ - In order to encode this into a program we define a function for
+   state transition -- this is analogous to "playing the round" as it
+   was put in Justin's diagram.
+ - The steps taken to perform a state transition are: making my move,
+   making the opponent's move and then playing things out like moving
+   missiles.  This is known as "ticking" the engine.
+ - BTW this looks nearly identical to the Haskell code I wrote for
+   this, but more on that later ;)
+ - Ticking the engine is defined as follows:
+   - increment the round which we're on;
+   - perform actions which buildings need to (such as firing
+     missiles);
+   - move and collide the missiles (or tick missiles);
+   - advance the state of the iron curtain -- turning it off if
+     necessary;
+   - gain energy from energy towers and the static energy per turn;
+ - Encoding this process into the bot is enough to see what the board
+   would look like in a couple of turns.
+ - Encoding this process would also allow your bot to see what impact
+   a move would have in a couple of turns.
+ - There's a problem though; because, there's something which makes
+   this challenge fundamentally different from other highly complex
+   problems like the travelling salesman problem: there's another
+   player.
+ - We say that the other player is adversarial because he's here to
+   ruin your day... and also win the match.
+ - It's almost as though we were solving the travelling salesman
+   problem, but the path kept on changing.
+ - We can, for instance, look at this board and think that a good move
+   will be to place an attack tower to attack the newly constructed
+   attack tower -- this is pretty good in general.
+ - What would the board look like in 2 turns?
+ - Maybe you have a fairly good idea... if you've also entered your
+   own bot into the competition.
+ - But what about 40 turns into the future?
+
+** Script
+Now knowing what makes a good move and how the game fits together in
+general is fundamental to creating a bot which can play the game.
+There's another part to the puzzle of creating an AI though, and
+that's understanding complexity.  In other words we need to understand
+just how much a board state can vary from one game to the next and, as
+a game advances.
+
+Now this particular game is complex.  In fact it's very complex.  So
+complex in fact that if you measure it in terms of the number of moves
+you can make at any time, then in that dimension -- it's more
+complicated than Go (of course there that's only one piece of the
+puzzle though.)  Let's take a look at a smaller board a 4 by 4 board,
+because if we made it any bigger than I'd need a much bigger screen,
+one preferably, with height equal to the length of the street outside
+;)
+
+In fact this is also too big.  Let's just consider the energy tower
+moves for now.  Here are... some of them.  The rest are out of view.
+For this small board size; I can make 16 different energy tower moves
+when the board is empty.  On a real board I could have made 4 times as
+many -- 64 for those who haven't been bit twiddling lately.
+
+Now here's where things start to get really complicated, because
+that's how many energy tower moves I can make.  My opponent can make
+just as many moves, and what's more all of the combinations of my
+moves with my opponents moves lead to unique board states.
+
+So for just energy towers that's sixteen by sixteen (which is 256)
+next board states and on the real game, that's 64 by 64 (which
+is 4096) states from energy towers alone.  Imagine if we add attack
+towers, defence towers, the Tesla tower and doing nothing.  At it's
+worst this equates to 66564 possible next states and from there, there
+would be a close number of possible next states -- meaning that the
+complexity grows exponentially with an very, very high branching
+factor.
+
+In a complex world we would like to construct a bot which can deal
+with this complexity and select a good move.  Clearly such a bot would
+need to be able to have an idea of how the movement of time impacts
+it's decision.  So lets ask a similar, but unrelated question: How
+would a bot know how to catch a ball?
+
+It knows by much the same means as we humans do.  By projecting into
+the future and trying to tell where the ball will land, placing our
+hand there, and closing it the moment that the ball is within our
+grasp.  In order to do this effectively, we have an inherent intuition
+about the nature of gravity and the path taken by objects in flight.
+In board terms this idea is covered by the concept of regression --
+the use of prior information and a model of reality to construct
+a future state.
+
+For our bot to be effective we would then need to encode a model for
+how the world works according to the rules of the Entelect Challenge.
+This world is discrete and moves from one state to the next with a
+clearly defined state transition function -- this is the "play round"
+step which Justin outlined at the start of the presentation.
+
+This is how a state transition is defined, and by the way this looks
+very close to how my Haskell code is written -- but more on that
+later.  So a state transition (or engine tick) is defined by first
+making my move, then my opponents (in any order since they happen at
+the same time), and then advancing the state of the game or ticking
+the engine.
+
+Ticking the engine is defined as incriminating the current round,
+performing building related actions such as finishing construction and
+firing missiles, moving and colliding missiles, advancing the state of
+the iron curtain and then finally by gaining the energy which you
+produced that turn.
+
+Encoding this process into your bot gives it the ability to peer into
+the future if no moves are made.  It also allows your bot to see what
+the effect of your move will be.  There's a problem; however, because,
+there's something which makes playing games fundamentally different to
+other complex problems like finding the shortest path between N cities
+and that's that you have an opponent who's out to ruin your day.  It's
+a bit like being asked to solve the travelling salesman problem but
+the routes between cities keep changing in order to minimise your
+chances of success.  
+
+So we can for instance get a reasonable idea of what the board might
+look like in 2 turns.  At least you might have a good idea if you've
+written a bot for this game yourself, but what, about 40 turns into
+the future...
+
+* Files 
+What's the story which I'd like to tell with my files?
+
+I'd like to show the audience:
+ - the difficulty of writing pure code which is fast;
+ - the elegance of the engine;
+ - the complexity of my missile movement and collision;
+ - type families for unboxed vectors for an efficient representation
+   of the tree;
+
+Broadly the concepts are:
+ - data structures;
+ - memory layout;
+ - algorithms;
+
+The following files cover these concepts:
+ - [[./eds-bot/src/GameTree.hs]] (Tree representation)
+ - [[./eds-bot/src/Engine.hs]] (Elegance of the Engine)
+ - [[./eds-bot/src/SearchSpace.hs]] (Parallel and Concurrent Code)
+ - [[./eds-bot/src/Objective.hs]] (Search loop)
+ - [[./eds-bot/src/Objective.hs]] (Confidence calculation)
+ - [[./eds-bot/src/Player.hs]] (bitwise insanity)
+
+** Script
