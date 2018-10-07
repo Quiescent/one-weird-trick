@@ -572,13 +572,14 @@ Player B, Health= 15, Energy=   117
             <div id="search" class="step" data-x="4000" data-y="1500" data-z="-5000" >
                 Search
                 <img class="regular-tesla" src="crystal_ball.png" alt="The crystal ball goes here" />
-                Trying to know the future, by simulating it...
+                figuring out the future by simulation...
             </div>
-            <div id="minimax" class="step" data-y="2500">
+            <div id="minimax" class="step centered" data-y="2500">
+              Minimax
                 <div id="minimax-tree"></div>
             </div>
-            <div id="monte-carlo-tree-search" class="step" data-y="3500">
-                Exploration vs Exploitation: The Monte Carlo Tree Search
+            <div id="monte-carlo-tree-search" class="step centered" data-y="3500">
+                Monte Carlo Tree Search
                 <div id="monte-carlo-tree"></div>
             </div>
 
@@ -595,8 +596,7 @@ Player B, Health= 15, Energy=   117
 [0   3][1   3][2   3][3   3]     [3   3][2   3][1   3][0   3]
                             </pre>
                         </td>
-                        A defence tower looks good on this simulation...
-                        <td class="spacer">&nbsp;</td>
+                        <td class="simulation-board-caption-right">A defence tower looks good in this simulation...</td>
                     </tr>
                 </table>
             </div>
@@ -606,14 +606,13 @@ Player B, Health= 15, Energy=   117
                     <tr>
                         <td>
                             <pre class="board mono not-so-small">
-[0   0][1   0][2   0][3 d 0]     [3   0][2   0][1   0][0   0]
-[0   1][1   1][2   1][3 a 1]     [3   1][2   1][1   1][0   1]
+[0   0][1   0][2   0][3 d 0]     [3 a 0][2   0][1   0][0   0]
+[0   1][1   1][2   1][3   1]     [3   1][2   1][1   1][0   1]
 [0   2][1   2][2   2][3   2]     [3   2][2   2][1   2][0   2]
 [0   3][1   3][2   3][3   3]     [3   3][2   3][1   3][0   3]
                             </pre>
                         </td>
-                        A defence tower looks good on this simulation...
-                        <td class="spacer">&nbsp;</td>
+                        <td class="simulation-board-caption-right">A defence tower looks good in this simulation...</td>
                     </tr>
                 </table>
             </div>
@@ -624,13 +623,13 @@ Player B, Health= 15, Energy=   117
                         <td>
                             <pre class="board mono not-so-small">
 [0   0][1   0][2   0][3 D 0]     [3 A 0][2   0][1   0][0   0]
-[0   1][1   1][2   1][3 A 1]     [3   1][2 > 1][1   1][0   1]
+[0   1][1   1][2   1][3 a 1]     [3   1][2   1][1   1][0   1]
 [0   2][1   2][2   2][3   2]     [3   2][2   2][1   2][0   2]
 [0   3][1   3][2   3][3   3]     [3   3][2   3][1   3][0   3]
                             </pre>
-</td>
-A defence tower looks good on this simulation...
-                        <td class="spacer">&nbsp;</td>
+                        </td>
+                        
+                        <td class="simulation-board-caption-right">A defence tower looks good in this simulation...</td>
                     </tr>
                 </table>
             </div>
@@ -641,13 +640,12 @@ A defence tower looks good on this simulation...
                         <td>
                             <pre class="board mono not-so-small">
 [0   0][1   0][2   0][3 D 0]     [3 A 0][2   0][1   0][0   0]
-[0   1][1   1][2   1][3 A 1]     [3 a 1][2   1][1   1][0 > 1]
+[0   1][1   1][2   1][3 A 1]     [3   1][2 > 1][1   1][0   1]
 [0   2][1   2][2   2][3   2]     [3   2][2   2][1   2][0   2]
 [0   3][1   3][2   3][3   3]     [3   3][2   3][1   3][0   3]
                             </pre>
-</td>
-A defence tower looks good on this simulation...
-                        <td class="spacer">&nbsp;</td>
+                        </td>
+                        <td class="simulation-board-caption-right">A defence tower looks good in this simulation...</td>
                     </tr>
                 </table>
             </div>
@@ -658,27 +656,55 @@ A defence tower looks good on this simulation...
                         <td>
                             <pre class="board mono not-so-small">
 [0   0][1   0][2   0][3 D 0]     [3 A 0][2   0][1   0][0   0]
-[0   1][1   1][2   1][3   1]     [3   1][2   1][1   1][0   1]
+[0   1][1   1][2   1][3 A 1]     [3   1][2   1][1   1][0 > 1]
 [0   2][1   2][2   2][3   2]     [3   2][2   2][1   2][0   2]
 [0   3][1   3][2   3][3   3]     [3   3][2   3][1   3][0   3]
                             </pre>
                         </td>
-                        A defence tower looks good on this simulation...
-                        <td class="spacer">&nbsp;</td>
+                        <td class="simulation-board-caption-right">A defence tower looks good in this simulation...</td>
                     </tr>
                 </table>
             </div>
 
             <!-- Move across here -->
-            <div id="solution-to-poor-simulations" class="step hide-inactive" data-x="4000" data-y="4500">
+            <div id="simulation-alternative-outcome" class="step hide-inactive" data-x="4000" data-y="4500">
                 <table>
                     <tr>
-                        <td class="spacer">&nbsp;</td>
-                        Clearly the oponent could have attacked on an empty row!
+                        <td class="simulation-board-caption-left">But the oponent could have attacked an empty row</td>
+                        <td>
+                            <pre class="board mono not-so-small">
+[0   0][1   0][2   0][3 d 0]     [3   0][2   0][1   0][0   0]
+[0   1][1   1][2   1][3   1]     [3   1][2   1][1   1][0   1]
+[0   2][1   2][2   2][3   2]     [3   2][2   2][1   2][0   2]
+[0   3][1   3][2   3][3   3]     [3   3][2   3][1   3][0   3]
+                            </pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="simulation-alternative-outcome" class="step hide-inactive" data-x="4000" data-y="4500">
+                <table>
+                    <tr>
+                        <td class="simulation-board-caption-left">But the oponent could have attacked an empty row</td>
                         <td>
                             <pre class="board mono not-so-small">
 [0   0][1   0][2   0][3 d 0]     [3   0][2   0][1   0][0   0]
 [0   1][1   1][2   1][3   1]     [3 a 1][2   1][1   1][0   1]
+[0   2][1   2][2   2][3   2]     [3   2][2   2][1   2][0   2]
+[0   3][1   3][2   3][3   3]     [3   3][2   3][1   3][0   3]
+                            </pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="simulation-alternative-outcome" class="step hide-inactive" data-x="4000" data-y="4500">
+                <table>
+                    <tr>
+                        <td class="simulation-board-caption-left">But the oponent could have attacked an empty row</td>
+                        <td>
+                            <pre class="board mono not-so-small">
+[0   0][1   0][2   0][3 D 0]     [3   0][2   0][1   0][0   0]
+[0   1][1   1][2 < 1][3 a 1]     [3 A 1][2   1][1   1][0   1]
 [0   2][1   2][2   2][3   2]     [3   2][2   2][1   2][0   2]
 [0   3][1   3][2   3][3   3]     [3   3][2   3][1   3][0   3]
                             </pre>

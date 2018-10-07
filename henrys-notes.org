@@ -1,0 +1,13 @@
+* Interesting places to look in the code 
+[[./henrys-bot/search.hpp::30]]
+- Custom memory allocator
+[[./henrys-bot/bot.hpp::105]]
+- Bitpacking
+[[./henrys-bot/bot.hpp::301]]
+- Branch free conditionals
+[[./henrys-bot/bot.hpp::724]]
+- Game loop
+[[./henrys-bot/search.hpp::229]]
+- Tree search
+[[./henrys-bot/search.hpp::418]]
+- Entirely independent parallel searches
