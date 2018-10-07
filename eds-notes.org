@@ -228,11 +228,62 @@ Broadly the concepts are:
  - algorithms;
 
 The following files cover these concepts:
+ - [[./eds-bot/src/SearchSpace.hs]] (Parallel and Concurrent Code)
  - [[./eds-bot/src/GameTree.hs]] (Tree representation)
  - [[./eds-bot/src/Engine.hs]] (Elegance of the Engine)
- - [[./eds-bot/src/SearchSpace.hs]] (Parallel and Concurrent Code)
+ - [[./eds-bot/src/Player.hs]] (bitwise insanity)
  - [[./eds-bot/src/Objective.hs]] (Search loop)
  - [[./eds-bot/src/Objective.hs]] (Confidence calculation)
- - [[./eds-bot/src/Player.hs]] (bitwise insanity)
 
-** Script
+** Notes
+ - So you might be wondering what it's like to write a purely
+   functional bot with these constraints;
+ - And you'd be right -- discussion of thunks, parallel and concurrent
+   code; (assume minimal knowledge of thunks)
+   - Haskell execution model;
+   - Haskell parallelism model;
+   - Haskell concurrency model;
+   - combined these things make stuff difficult;
+ - Also it's difficult to make things fast enough;
+   - discussion of the heap, and how thunks get allocated there;
+   - even primitives are wrapped up;
+   - analysing the program changes it:
+     - on two occasions I made changes which bench marked faster, but
+       were slower w/o instrumentation;
+       - trying to allocate less for move selection;
+       - trying to inline more bitwise operations;
+     - bench marking a parallel program changes how it sparks;
+ - On the plus side: I have some very elegant code for interacting
+   with unboxed vectors as though they had more structure.
+ - The tree structure I made with these is elegant, space efficient
+   and fast.
+ - The engine code is succinct, has no side effects and is dead easy
+   to change.
+ - How did I make it fast enough though... Like the others here; I
+   made a crazy bitwise representation for the map which meant that
+   all steps are done in constant time.
+   - Take a look at the missile movement logic;
+   - Take a look at the missile collision logic;
+ - Take a look at the four recursive methods which illustrate the core
+   Monte Carlo loop.
+ - Take a look at the confidence calculation and how the type families
+   made this easy.  From the Haskell wiki: Type Classes allow function
+   overloading, and Type Families allow for the overloading of data
+   representation based on a parametric type.  So here I said that I
+   wanted an unboxed vector of tuples -- not possible because tuples
+   are boxed types; however, the tuple is treated as a generic
+   parameter which selects the data representation to use under the
+   hood -- in this case that's two vectors of unboxed integers instead
+   of the vector of tuples.  In practice this reduces the number of
+   indirect calls dramatically and also makes the data much hotter on
+   the cache because it's all much more spatially local.
+ - I suppose that it's also worth noting that I took a look at the
+   core at one point to try and see whether there were any instances
+   of data being boxed unnecessarily.  This is an excellent way to
+   improve the performance of your Haskell programs and while it
+   sounds imposing -- isn't actually all that difficult.  Id
+   recommend taking a look at the chapter on performance in the Real
+   World Haskell book (available free online) for some basic
+   guidelines on using core to improve performance and performance in
+   general.
+
