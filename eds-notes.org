@@ -20,30 +20,33 @@ features are what I think make for good code viewing:
    '("melpa" . "http://melpa.milkbox.net/packages/")
    t)
 
-  (when (not (package-installed-p use-package))
+  (package-initialize)
+  (package-refresh-contents)
+
+  (when (not (package-installed-p 'use-package))
     (package-install 'use-package))
 
   (use-package doom-themes
     :ensure t
     :init (progn
-            ;; From: https://github.com/hlissner/emacs-doom-themes
-            (require 'doom-themes)
-            ;; Global settings (defaults)
-            (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-                  doom-themes-enable-italic t) ; if nil, italics is universally disabled
+	    ;; From: https://github.com/hlissner/emacs-doom-themes
+	    (require 'doom-themes)
+	    ;; Global settings (defaults)
+	    (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+		  doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
-            ;; Enable flashing mode-line on errors
-            (doom-themes-visual-bell-config)
+	    ;; Enable flashing mode-line on errors
+	    (doom-themes-visual-bell-config)
 
-            ;; Enable custom neotree theme (all-the-icons must be installed!)
-            (doom-themes-neotree-config)
-            ;; or for treemacs users
-            (doom-themes-treemacs-config)
+	    ;; Enable custom neotree theme (all-the-icons must be installed!)
+	    (doom-themes-neotree-config)
+	    ;; or for treemacs users
+	    (doom-themes-treemacs-config)
 
-            ;; Corrects (and improves) org-mode's native fontification.
-            (doom-themes-org-config)
+	    ;; Corrects (and improves) org-mode's native fontification.
+	    (doom-themes-org-config)
 
-            (load-theme 'doom-one-light t)))
+	    (load-theme 'doom-one-light t)))
 
   (use-package doom-modeline
     :ensure t
@@ -59,12 +62,23 @@ features are what I think make for good code viewing:
   (use-package haskell-mode
     :ensure t)
 
-  (custom-set-faces '(default ((t (:height 350)))))
+  (custom-set-faces '(default ((t (:height 250)))))
 
   (use-package intero
     :ensure t
     :config (add-hook 'haskell-mode-hook 'intero-mode))
+
+  (use-package all-the-icons
+    :ensure t)
+
+  (menu-bar-mode -1)
+
+  (tool-bar-mode -1)
+
+  (scroll-bar-mode -1)
 #+END_SRC
+
+#+RESULTS:
 
 * Speach Notes
 ** Reasoning
@@ -228,12 +242,12 @@ Broadly the concepts are:
  - algorithms;
 
 The following files cover these concepts:
- - [[./eds-bot/src/SearchSpace.hs]] (Parallel and Concurrent Code)
- - [[./eds-bot/src/GameTree.hs]] (Tree representation)
- - [[./eds-bot/src/Engine.hs]] (Elegance of the Engine)
- - [[./eds-bot/src/Player.hs]] (bitwise insanity)
- - [[./eds-bot/src/Objective.hs]] (Search loop)
- - [[./eds-bot/src/Objective.hs]] (Confidence calculation)
+ - [[./eds-bot/src/SearchSpace.hs::38]] (Parallel and Concurrent Code)
+ - [[./eds-bot/src/GameTree.hs::28]] (Tree representation)
+ - [[./eds-bot/src/Engine.hs::12]] (Elegance of the Engine)
+ - [[./eds-bot/src/Player.hs::208]] (bitwise insanity)
+ - [[./eds-bot/src/Objective.hs::48]] (Search loop)
+ - [[./eds-bot/src/Objective.hs::166]] (Confidence calculation)
 
 ** Notes
  - So you might be wondering what it's like to write a purely
